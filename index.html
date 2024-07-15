@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DirectL Project Homepage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+            color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+        .highlight {
+            font-weight: bold;
+            font-size: 48px;
+            background: linear-gradient(45deg, #d4007f, #333333);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+        }
+        .artistic-text {
+            font-size: 24px;
+            color: gray;
+            margin-top: 20px;
+        }
+        .content {
+            position: relative;
+            text-align: center;
+        }
+        .character {
+            position: absolute;
+            width: 50px;
+            height: auto;
+            top: -10px;
+        }
+        .doraemon {
+            left: -60px;
+        }
+        .nobita {
+            right: -60px;
+        }
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        .under-construction {
+            position: absolute;
+            bottom: 20px;
+            font-size: 20px;
+            color: #ffcc00;
+            animation: blink 1s infinite;
+        }
+    </style>
+</head>
+<body>
+
+<div class="content">
+    <img src="doraemon.png" class="character doraemon" alt="Doraemon">
+    <h1><span class="highlight">DirectL</span>: Efficient Radiance Fields Rendering for 3D Light Field Displays</h1>
+    <img src="nobita.png" class="character nobita" alt="Nobita">
+    <p class="artistic-text">Make Radiance Fields Naked-3D</p>
+    <div class="under-construction">Under Construction</div>
+</div>
+
+</body>
+</html>
