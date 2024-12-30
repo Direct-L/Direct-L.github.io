@@ -4,72 +4,1009 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DirectL Project Homepage</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
+
         body {
-            font-family: Arial, sans-serif;
+            background-color: #000000;
+            color: #ffffff; /* 确保默认文字为白色 */
             margin: 0;
             padding: 0;
-            background-color: #222222;
-            color: #f0f0f0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            flex-direction: column;
         }
+
+        .authors-section {
+            font-family: 'Source Sans Pro', sans-serif;
+            color: #ffffff;
+            text-align: center;
+            margin: 5px auto 10px;
+            max-width: 1200px;
+            animation: fadeIn 1s ease-in;
+        }
+
+        .main-authors,
+        .secondary-authors {
+            font-size: 22px;
+            letter-spacing: 1.2px;
+            line-height: 1.5;
+            margin: 5px 0;
+        }
+
+        .separator {
+            margin: 0 10px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .affiliation {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.8);
+            margin: 20px 0;
+            line-height: 1.5;
+        }
+
+        .footnotes {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 0;
+        }
+
+        .footnotes p {
+            margin: 5px 0;
+        }
+
+        sup {
+            color: #4CAF50;
+            font-weight: bold;
+            font-size: 14px;
+            margin-left: 2px;
+        }
+
+        /* 作者链接样式 */
+        .main-authors a,
+        .secondary-authors a {
+            color: #ffffff;
+            text-decoration: none;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .main-authors a:hover,
+        .secondary-authors a:hover {
+            color: #2196F3;
+        }
+
+        /* 作者链接下划线动画 */
+        .main-authors a::after,
+        .secondary-authors a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: #2196F3;
+            transition: width 0.3s ease;
+        }
+
+        .main-authors a:hover::after,
+        .secondary-authors a:hover::after {
+            width: 100%;
+        }
+
+        /* 作者悬停效果 */
+        .main-authors span:not(.separator):hover,
+        .secondary-authors span:not(.separator):hover {
+            color: #2196F3;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        /* 首先引入一个高级感的字体，比如 Montserrat */
+
+        .artistic-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            font-weight: 300;
+            letter-spacing: 3px;
+            color: transparent;
+            background: linear-gradient(120deg, #2196F3, #00BCD4, #3F51B5);
+            -webkit-background-clip: text;
+            background-clip: text;
+            text-transform: uppercase;
+            position: relative;
+            margin-top: 0;
+            margin-bottom: 0; /* 设置下边距为0 */
+            padding-bottom: 0; /* 确保没有内边距 */
+            animation: glow 2s ease-in-out infinite alternate;
+            text-shadow:
+                0 0 10px rgba(33, 150, 243, 0.3),
+                0 0 20px rgba(33, 150, 243, 0.3),
+                0 0 30px rgba(33, 150, 243, 0.3);
+        }
+
+        /* 添加呼吸光效果的动画 */
+        @keyframes glow {
+            from {
+                filter: drop-shadow(0 0 2px #2196F3) drop-shadow(0 0 4px #2196F3);
+            }
+            to {
+                filter: drop-shadow(0 0 4px #2196F3) drop-shadow(0 0 8px #2196F3);
+            }
+        }
+
+        /* 添加悬停效果 */
+        .artistic-text:hover {
+            transform: scale(1.02);
+            transition: transform 0.3s ease;
+        }
+
+
+        .content {
+            position: relative;
+            text-align: center;
+            padding: 0 0;
+            margin-bottom: 0;
+        }
+
+        /* DirectL 标题的渐变效果 */
         .highlight {
             font-weight: bold;
             font-size: 48px;
             background: linear-gradient(45deg, #3498DB, #00a0ea, #fac63f, #fac63f);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
             text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
         }
-        .artistic-text {
-            font-size: 24px;
-            color: gray;
-            margin-top: 20px;
-        }
-        .content {
-            position: relative;
-            text-align: center;
-        }
+
+        /* 调整图片位置 */
         .character {
             position: absolute;
             width: 50px;
             height: auto;
-            top: -10px;
+            top: 50%;
+            transform: translateY(-15%);
+            transition: transform 0.3s ease;
         }
+
         .doraemon {
-            left: -60px;
+            left: 25%; /* 调整到标题左侧 */
         }
+
         .nobita {
-            right: -60px;
+            right: 25%; /* 调整到标题右侧 */
         }
-        @keyframes blink {
-            0% { opacity: 1; }
-            50% { opacity: 0; }
-            100% { opacity: 1; }
+
+        .character:hover {
+            transform: translateY(-50%) scale(1.2);
         }
-        .under-construction {
+
+
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0px;
+        }
+
+        .section {
+            margin: 50px 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .video-container {
+            width: 100%;
+            margin: 0px 0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .video-container video {
+            width: 100%;
+            display: block;
+        }
+
+        .video-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .video-row video {
+            width: calc(33.33% - 14px);
+            border-radius: 8px;
+        }
+
+        .author-link:hover {
+            color: #fac63f;
+        }
+
+        .citation {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 10px;
+            font-family: monospace;
+            margin: 20px 0;
+            white-space: pre-wrap;
+            overflow-x: auto;
+        }
+
+        .vr-section {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .vr-button {
+            background: linear-gradient(45deg, #3498DB, #00a0ea);
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            margin: 10px;
+        }
+
+        .vr-button:hover {
+            transform: scale(1.05);
+        }
+
+        img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        h2 {
+            color: #3498DB;
+            text-align: center;
+            margin: 40px 0 20px;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 20px;
+            }
+
+            .highlight {
+                font-size: 32px;
+            }
+
+            .artistic-text {
+                font-size: 18px;
+            }
+
+            .character {
+                width: 30px;
+            }
+
+            .video-row {
+                flex-direction: column;
+            }
+
+            .video-row video {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+            .vr-button {
+                padding: 10px 20px;
+                margin: 5px;
+            }
+        }
+        .conference-section {
+            text-align: center;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 22px;
+            color: #ffffff;
+            margin: 20px auto;
+            padding: 10px 0;
+            max-width: 800px;
+            animation: fadeIn 1s ease-in;
+        }
+
+        .conference-section strong {
+            font-weight: 600;
+        }
+        .buttons-section {
+            text-align: center;
+            margin: 25px auto;
+            max-width: 800px;
+            animation: fadeIn 1s ease-in;
+        }
+
+        .fancy-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
+            margin: 0 10px;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: #ffffff;
+            background: linear-gradient(45deg, #3498DB, #00a0ea);
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(33, 150, 243, 0.3);
+        }
+
+        .fancy-button i {
+            margin-right: 8px;
+            font-size: 18px;
+        }
+
+        .fancy-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(33, 150, 243, 0.4);
+            background: linear-gradient(45deg, #00a0ea, #3498DB);
+        }
+
+        /* Contact按钮特殊样式 */
+        .contact-button {
+            background: linear-gradient(45deg, #FF8C00, #FFA500);
+            box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3);
+        }
+
+        .contact-button:hover {
+            background: linear-gradient(45deg, #FFA500, #FF8C00);
+            box-shadow: 0 6px 20px rgba(255, 140, 0, 0.4);
+        }
+
+        .contact-button:active {
+            transform: translateY(1px);
+            box-shadow: 0 2px 10px rgba(255, 140, 0, 0.3);
+        }
+
+        .fancy-button:active {
+            transform: translateY(1px);
+            box-shadow: 0 2px 10px rgba(33, 150, 243, 0.3);
+        }
+
+        /* 添加响应式设计 */
+        @media (max-width: 768px) {
+            .buttons-section {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+
+            .fancy-button {
+                width: 80%;
+                margin: 0;
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* 可以添加一个高亮效果，当用户滚动到VR Demo部分时 */
+        .vr-section {
+            transition: background-color 0.3s ease;
+        }
+
+        .vr-section:target {
+            animation: highlight 1s ease;
+        }
+
+        @keyframes highlight {
+            0% {
+                background-color: rgba(52, 152, 219, 0.2);
+            }
+            100% {
+                background-color: transparent;
+            }
+        }
+
+        .note {
+            color: #999999;
+            font-size: 0.9em;
+            font-style: italic;
+            margin: 15px 0;
+            line-height: 1.5;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .visitor-badge {
+            text-align: center;
+            margin: 0; /* 移除所有外边距 */
+            padding: 0; /* 移除所有内边距 */
+            line-height: 0; /* 消除可能的额外间距 */
+            font-size: 0; /* 消除可能的额外间距 */
+        }
+
+        .visitor-badge img {
+            vertical-align: top; /* 确保图片对齐方式不会产生额外间距 */
+        }
+        .tldr-section {
+            text-align: center;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 18px;
+            color: #ffffff;
+            margin: 20px auto;
+            padding: 15px;
+            max-width: 1000px;
+            line-height: 1.5;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            animation: fadeIn 1s ease-in;
+        }
+        .video-caption {
+            text-align: center;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 25px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 15px;
+            margin-bottom: 25px;
+            font-style: italic;
+            line-height: 1.4;
+        }
+        .white-container {
+            background-color: rgba(255, 255, 255, 0.8); /* 增加透明度，让背景更亮 */
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2); /* 增加阴影亮度 */
+            margin: 0 auto;
+            max-width: 95%;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2); /* 添加一个微妙的边框 */
+        }
+
+        .white-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+        }
+        .abstract-container {
+            background-color: rgba(255, 255, 255, 0.15);
+            padding: 30px 40px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+            margin: 0 auto;
+            max-width: 90%;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .abstract-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 28px;
+            color: #ffffff;
+            margin-bottom: 20px;
+            text-align: left;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .abstract-text {
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 18px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 1);
+            text-align: justify;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .abstract-container {
+                padding: 20px;
+                max-width: 95%;
+            }
+
+            .abstract-title {
+                font-size: 24px;
+            }
+
+            .abstract-text {
+                font-size: 16px;
+                line-height: 1.5;
+            }
+        }
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            color: #ffffff;
+            margin: 40px 0 20px;
+            text-align: left;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .section-caption {
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 16px;
+            color: rgba(255, 255, 255, 1);
+            margin: 15px 0;
+            text-align: justify;
+            line-height: 1.5;
+        }
+
+        .video-column {
+            flex: 1;
+            margin: 0 10px;
+            text-align: center;
+        }
+
+        .video-caption {
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-top: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 20px;
+            }
+
+            .section-caption {
+                font-size: 14px;
+            }
+        }
+        .two-column-layout {
+            display: flex;
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .left-column, .right-column {
+            flex: 1;
+        }
+
+        .video-container {
+            width: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .video-container video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .citation-box {
+            background-color: rgba(255, 255, 255, 0.15);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+        }
+
+        .citation-text {
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.9);
+            white-space: pre-wrap;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .two-column-layout {
+                flex-direction: column;
+            }
+
+            .left-column, .right-column {
+                width: 100%;
+            }
+        }
+        .citation-box {
+            position: relative;
+            background-color: rgba(255, 255, 255, 0.15);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+        }
+
+        .copy-button {
             position: absolute;
-            bottom: 20px;
-            font-size: 20px;
-            color: #ffcc00;
-            animation: blink 1s infinite;
+            top: 10px;
+            right: 10px;
+            padding: 8px 16px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 14px;
         }
+
+        .copy-button:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .copy-button.copied {
+            background-color: #4CAF50;
+        }
+
+        .button-text {
+            pointer-events: none;
+        }
+        .tips-box {
+            margin-top: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .tips-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .tips-icon {
+            font-size: 20px;
+            margin-right: 10px;
+        }
+
+        .tips-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .tips-content {
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .tips-content ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        .tips-content li {
+            margin: 5px 0;
+        }
+
+        .email-link {
+            color: #64B5F6;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .email-link:hover {
+            color: #90CAF9;
+            text-decoration: underline;
+        }
+
+        .tips-highlight {
+            margin-top: 15px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        @media (max-width: 768px) {
+            .tips-box {
+                margin-top: 15px;
+                padding: 15px;
+            }
+
+            .tips-title {
+                font-size: 16px;
+            }
+
+            .tips-content {
+                font-size: 13px;
+            }
+        }
+        .contact-button {
+            background-color: #FF8C00;
+            font-weight: 700;
+        }
+
+        .contact-button:hover {
+            background-color: #FFA500;
+        }
+
+
+
     </style>
 </head>
 <body>
+    <!-- 标题部分 -->
+    <div class="content">
+        <img src="doraemon.png" class="character doraemon" alt="Doraemon">
+        <h1><span class="highlight">DirectL</span>: Efficient Radiance Fields Rendering for 3D Light Field Displays</h1>
+        <img src="nobita.png" class="character nobita" alt="Nobita">
+        <p class="artistic-text">Make Radiance Fields Naked-eye-3D</p>
+    </div>
+    <div class="visitor-badge" style="text-align: center; margin-top: 0;">
+        <a href="https://visitorbadge.io/status?path=https%3A%2F%2Fdirect-l.github.io%2F">
+            <img src="https://api.visitorbadge.io/api/combined?path=https%3A%2F%2Fdirect-l.github.io%2F&countColor=%23d9e3f0" />
+        </a>
+    </div>
+    <div class="authors-section">
+        <div class="main-authors">
+            <a href="https://royalvice.github.io/" target="_blank">Zongyuan Yang</a><sup>*</sup>
+            <span class="separator">·</span>
+            <span>Baolin Liu</span><sup>*</sup>
+            <span class="separator">·</span>
+            <span>Yingde Song</span><sup>*</sup>
+            <span class="separator">·</span>
+            <a href="https://teacher.bupt.edu.cn/xiongyongping/zh_CN/index.htm" target="_blank">Yongping Xiong</a><sup>†</sup>
+        </div>
+        
+        <div class="secondary-authors">
+            <span>Lan Yi</span>
+            <span class="separator">·</span>
+            <span>Zhaohe Zhang</span>
+            <span class="separator">·</span>
+            <span>Xunbo Yu</span><sup>‡</sup>
+        </div>
+    
+        <div class="affiliation">
+            State Key Laboratory of Networking and Switching Technology,<br>
+            Beijing University of Posts and Telecommunications, China
+        </div>
+    
+        <div class="footnotes">
+            <p><sup>*</sup>The authors contributed equally to this work.</p>
+        </div>
+    </div>
+    <div class="conference-section">
+        <strong>SIGGRAPH Asia 2024 (Journal Track)</strong>
+    </div>
+    <div class="buttons-section">
+        <button class="fancy-button" onclick="window.open('https://dl.acm.org/doi/abs/10.1145/3687897', '_blank')">
+            <i class="fas fa-file-pdf"></i>
+            Paper
+        </button>
+        <button class="fancy-button" onclick="window.open('https://arxiv.org/abs/2407.14053', '_blank')">
+            <i class="fas fa-archive"></i>
+            arXiv
+        </button>
+        <button class="fancy-button" onclick="window.open('#', '_blank')">
+            <i class="fas fa-video"></i>
+            VR Demo Video
+        </button>
+        <button class="fancy-button contact-button" onclick="scrollToContact(event)">
+            <i class="fas fa-handshake"></i>
+            Contact & Collaboration
+        </button>
+    </div>
 
-<div class="content">
-    <img src="doraemon.png" class="character doraemon" alt="Doraemon">
-    <h1><span class="highlight">DirectL</span>: Efficient Radiance Fields Rendering for 3D Light Field Displays</h1>
-    <img src="nobita.png" class="character nobita" alt="Nobita">
-    <p class="artistic-text">Make Radiance Fields Naked-eye-3D</p>
-    <div class="under-construction">Under Construction</div>
-</div>
+    <div class="container">
+        <!-- Teaser视频 -->
+        <div class="section">
+            <div class="video-container">
+                <video autoplay loop muted playsinline>
+                    <source src="video/65inch_8k_garden.mp4" type="video/mp4">
+                </video>
+            </div>
+            <p class="video-caption">Real footage from an 8K 65-inch 3D display showing the classic "Garden" scene.</p>
+        </div>
+        <div class="tldr-section">
+            TL;DR: We <strong>efficiently render</strong> <strong>radiance fields</strong>-based methods on <strong>3D light field displays</strong>;<br>
+            The combination of radiance fields and light field displays greatly <strong>simplifies</strong> the creation of light field display content!
+        </div>
+        <!-- Abstract部分 -->
+        <div class="section">
+            <div class="abstract-container">
+                <h2 class="abstract-title">Abstract</h2>
+                <p class="abstract-text">
+                    Autostereoscopic display technology has faced limited adoption due to the complexity of 3D content creation. While Radiance Fields have revolutionized 3D reconstruction and content generation, their integration with Light Field Displays (LFDs) remains challenging, particularly in real-time rendering scenarios that require multiple high-resolution views. We present DirectL, a novel rendering paradigm that bridges this gap. By analyzing the mapping between spatial rays and screen subpixels, and introducing subpixel repurposing techniques, DirectL significantly reduces rendering requirements. Our method, compatible with both Neural Radiance Fields (NeRFs) and 3D Gaussian Splatting (3DGS), achieves up to 40x faster rendering compared to traditional approaches while maintaining visual quality. DirectL's process-only modifications enable seamless integration with existing radiance field applications, demonstrating the practical potential of combining LFDs with modern 3D content creation techniques.
+                </p>
+            </div>
+        </div>
 
-<a href="https://visitorbadge.io/status?path=https%3A%2F%2Fdirect-l.github.io%2F"><img src="https://api.visitorbadge.io/api/combined?path=https%3A%2F%2Fdirect-l.github.io%2F&countColor=%23d9e3f0" /></a>
+        <!-- Teaser图片 -->
+        <div class="section">
+            <div class="white-container">
+                <img src="image/teaser.png" alt="Teaser">
+            </div>
+            <p class="video-caption">Real footage from 3D displays of different sizes.</p>
+        </div>
+
+
+        <!-- Overview -->
+        <div class="section">
+            <h3 class="section-title">Overview of DirectL Pipeline</h3>
+            <div class="white-container">
+                <img src="image/overview.png" alt="Overview">
+            </div>
+            <p class="section-caption">Overview of the DirectL framework. The pipeline includes offline ray configuration calculation, real-time ray parameters determination, view-independent rendering, and channel reordering for direct display output.</p>
+        </div>
+
+        <div class="section">
+            <h3 class="section-title">Application Integration</h3>
+            <div class="white-container">
+                <img src="image/app.png" alt="Application">
+            </div>
+            <p class="section-caption">Integration of DirectL with downstream radiance field applications, showcasing the synergy between 3D displays and radiance field technologies.</p>
+        </div>
+
+        <div class="section">
+            <h3 class="section-title">Real-World Applications</h3>
+            <div class="video-row">
+                <div class="video-column">
+                    <video autoplay loop muted playsinline>
+                        <source src="video/7.9inch_newton.mp4" type="video/mp4">
+                    </video>
+                    <p class="video-caption">2D Photo to 3D Conversion</p>
+                </div>
+                <div class="video-column">
+                    <video autoplay loop muted playsinline>
+                        <source src="video/7.9inch_dy.mp4" type="video/mp4">
+                    </video>
+                    <p class="video-caption">4D Scene Reconstruction</p>
+                </div>
+                <div class="video-column">
+                    <video autoplay loop muted playsinline>
+                        <source src="video/7.9inch_bee.mp4" type="video/mp4">
+                    </video>
+                    <p class="video-caption">Web-based 2D to 3D Generation</p>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- VR Demo section -->
+        <div class="section vr-section" id="vr-demo">
+            <h2>VR Demo</h2>
+            <button class="vr-button" onclick="playVRVideo('video/VR_bee_full-rsbs.mp4')">Watch Bee VR</button>
+            <button class="vr-button" onclick="playVRVideo('video/VR_Garden_full-rsbs.mp4')">Watch Garden VR</button>
+            <button class="vr-button" onclick="playVRVideo('video/VR_plane_full-rsbs.mp4')">Watch Plane VR</button>
+            <p class="note">Note: For readers without 3D displays, VR video is the most effective way we could think of to demonstrate the 3D effect. The stereoscopic videos were captured using iPhone 15 Pro, so please bear with us!</p>
+        </div>
+        <div class="section two-column-layout">
+            <!-- 左侧Citation和Tips -->
+            <div class="left-column">
+                <h3 class="section-title">Citation</h3>
+                <div class="citation-box">
+                    <button class="copy-button" onclick="copyToClipboard()">
+                        <span class="button-text">Copy</span>
+                    </button>
+                    <pre class="citation-text" id="citation-content">
+@article{directL2024,
+    title={DirectL: Towards Real-Time Rendering of Radiance Fields on Light Field Displays},
+    author={Author Names},
+    journal={arXiv preprint},
+    year={2024}
+}</pre>
+                </div>
+
+                <div class="tips-box" id="contact-section">
+                    <div class="tips-header">
+                        <span class="tips-icon">💡</span>
+                        <span class="tips-title">Contact & Collaboration</span>
+                    </div>
+                    <div class="tips-content">
+                        We specialize in creating all types of 3D display content, including but not limited to:
+                        <ul>
+                            <li>2D content (text, images, videos) conversion to glasses-free 3D</li>
+                            <li>Unity & Unreal Engine integration (games, interactions, MetaHuman)</li>
+                            <li>Real-time rendering and interaction</li>
+                        </ul>
+                        For any questions or collaboration opportunities, please feel free to contact the first author at:
+                        <a href="mailto:yangzongyuan0@bupt.edu.cn" class="email-link">yangzongyuan0@bupt.edu.cn</a>
+                        <p class="tips-highlight">We also provide hardware and software solutions for glasses-free 3D displays of all sizes!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 右侧Display视频 -->
+            <div class="right-column">
+                <h3 class="section-title">Display Hardware</h3>
+                <div class="video-container">
+                    <video autoplay loop muted playsinline>
+                        <source src="video/display.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <script>
+        function copyToClipboard() {
+            const citationText = document.getElementById('citation-content').textContent;
+            navigator.clipboard.writeText(citationText).then(() => {
+                const button = document.querySelector('.copy-button');
+                const buttonText = button.querySelector('.button-text');
+
+                // Change button text and style
+                buttonText.textContent = 'Copied!';
+                button.classList.add('copied');
+
+                // Reset button after 2 seconds
+                setTimeout(() => {
+                    buttonText.textContent = 'Copy';
+                    button.classList.remove('copied');
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy text: ', err);
+            });
+        }
+
+            function smoothScroll(elementId) {
+            const element = document.getElementById(elementId);
+            element.scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+
+        // 滚动动画
+        function checkVisible() {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                const isVisible = (rect.top <= window.innerHeight * 0.8);
+                if (isVisible) {
+                    section.classList.add('visible');
+                }
+            });
+        }
+
+        // VR视频播放
+        function playVRVideo(videoSrc) {
+            window.open(videoSrc, '_blank');
+        }
+        function scrollToContact(event) {
+            event.preventDefault();
+            const contactSection = document.getElementById('contact-section');
+            contactSection.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
+
+            contactSection.classList.add('highlight-section');
+            setTimeout(() => {
+                contactSection.classList.remove('highlight-section');
+            }, 1500);
+        }
+
+
+        // 页面加载和滚动时检查可见性
+        window.addEventListener('scroll', checkVisible);
+        window.addEventListener('load', checkVisible);
+
+        // 确保视频加载后自动播放
+        document.addEventListener('DOMContentLoaded', function() {
+            const videos = document.querySelectorAll('video');
+            videos.forEach(video => {
+                video.play().catch(function(error) {
+                    console.log("Video autoplay failed:", error);
+                });
+            });
+        });
+    </script>
 </body>
 </html>
