@@ -153,6 +153,14 @@
             transition: transform 0.3s ease;
         }
 
+        .open-source-announcement {
+            margin: 8px 0 0;
+            color: #e85d04;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
 
         .content {
             position: relative;
@@ -743,6 +751,7 @@
     <div class="content">
         <img src="doraemon.png" class="character doraemon" alt="Doraemon">
         <h1><span class="highlight">DirectL</span>: Efficient Radiance Fields Rendering for 3D Light Field Displays</h1>
+        <p class="open-source-announcement">🔥 Code is now open source!</p>
         <img src="nobita.png" class="character nobita" alt="Nobita">
         <p class="artistic-text">Make Radiance Fields Naked-eye-3D</p>
     </div>
@@ -783,6 +792,10 @@
         <strong>SIGGRAPH Asia 2024 (Journal Track)</strong>
     </div>
     <div class="buttons-section">
+        <button class="fancy-button" onclick="window.open('https://github.com/CoronaEngine/DirectLStudio', '_blank')">
+            <i class="fab fa-github"></i>
+            Code
+        </button>
         <button class="fancy-button" onclick="window.open('https://dl.acm.org/doi/abs/10.1145/3687897', '_blank')">
             <i class="fas fa-file-pdf"></i>
             Paper
