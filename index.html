@@ -9,6 +9,19 @@
         @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
 
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
         body {
             background-color: #000000;
             color: #ffffff; /* 确保默认文字为白色 */
@@ -16,37 +29,91 @@
             padding: 0;
         }
 
+        .hero {
+            position: relative;
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 46px 28px 20px;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero h1 {
+            max-width: 1050px;
+            margin: 0 auto 14px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(34px, 4.2vw, 58px);
+            line-height: 1.15;
+            letter-spacing: -1.2px;
+        }
+
+        .hero-meta {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 18px auto 14px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 14px;
+            border: 1px solid rgba(52, 152, 219, 0.45);
+            border-radius: 999px;
+            color: rgba(255, 255, 255, 0.9);
+            background: rgba(22, 34, 51, 0.75);
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-badge.open-source {
+            border-color: rgba(255, 140, 0, 0.55);
+            color: #ffad42;
+            background: rgba(72, 38, 0, 0.42);
+        }
+
         .authors-section {
             font-family: 'Source Sans Pro', sans-serif;
             color: #ffffff;
             text-align: center;
-            margin: 5px auto 10px;
+            margin: 20px auto 8px;
             max-width: 1200px;
             animation: fadeIn 1s ease-in;
         }
 
         .main-authors,
         .secondary-authors {
-            font-size: 22px;
-            letter-spacing: 1.2px;
-            line-height: 1.5;
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 6px 10px;
+            font-size: 20px;
+            letter-spacing: 0.7px;
+            line-height: 1.45;
             margin: 5px 0;
         }
 
         .separator {
-            margin: 0 10px;
+            margin: 0 2px;
             color: rgba(255, 255, 255, 0.5);
         }
 
         .affiliation {
-            font-size: 20px;
+            font-size: 18px;
             color: rgba(255, 255, 255, 0.8);
-            margin: 20px 0;
+            margin: 14px 0 8px;
             line-height: 1.5;
         }
 
         .footnotes {
-            font-size: 18px;
+            font-size: 15px;
             color: rgba(255, 255, 255, 0.7);
             margin-top: 0;
         }
@@ -153,15 +220,6 @@
             transition: transform 0.3s ease;
         }
 
-        .open-source-announcement {
-            margin: 8px 0 0;
-            color: #e85d04;
-            font-family: 'Source Sans Pro', sans-serif;
-            font-size: 20px;
-            font-weight: 700;
-        }
-
-
         .content {
             position: relative;
             text-align: center;
@@ -185,17 +243,17 @@
             position: absolute;
             width: 50px;
             height: auto;
-            top: 50%;
+            top: 42%;
             transform: translateY(-15%);
             transition: transform 0.3s ease;
         }
 
         .doraemon {
-            left: 25%; /* 调整到标题左侧 */
+            left: 1.5%; /* 调整到标题左侧 */
         }
 
         .nobita {
-            right: 25%; /* 调整到标题右侧 */
+            right: 1.5%; /* 调整到标题右侧 */
         }
 
         .character:hover {
@@ -293,20 +351,65 @@
         }
 
         @media (max-width: 768px) {
+            .hero {
+                padding: 28px 16px 12px;
+            }
+
+            .hero h1 {
+                font-size: clamp(28px, 8.4vw, 34px);
+                line-height: 1.12;
+                letter-spacing: -0.6px;
+                overflow-wrap: anywhere;
+            }
+
             .content {
-                padding: 20px;
+                padding: 0;
             }
 
             .highlight {
-                font-size: 32px;
+                font-size: inherit;
             }
 
             .artistic-text {
-                font-size: 18px;
+                font-size: clamp(15px, 4.6vw, 18px);
+                line-height: 1.45;
+                letter-spacing: 2px;
+                overflow-wrap: anywhere;
+            }
+
+            .hero-meta {
+                flex-direction: column;
+                gap: 8px;
+                width: 100%;
+                margin-top: 14px;
+            }
+
+            .hero-badge {
+                justify-content: center;
+                max-width: 100%;
+                text-align: center;
             }
 
             .character {
-                width: 30px;
+                display: none;
+            }
+
+            .authors-section {
+                width: 100%;
+                max-width: 100%;
+                padding: 0 16px;
+            }
+
+            .main-authors,
+            .secondary-authors {
+                font-size: 17px;
+                gap: 4px 8px;
+                max-width: 100%;
+            }
+
+            .affiliation {
+                font-size: 16px;
+                overflow-wrap: anywhere;
             }
 
             .video-row {
@@ -323,24 +426,15 @@
                 margin: 5px;
             }
         }
-        .conference-section {
-            text-align: center;
-            font-family: 'Source Sans Pro', sans-serif;
-            font-size: 22px;
-            color: #ffffff;
-            margin: 20px auto;
-            padding: 10px 0;
-            max-width: 800px;
-            animation: fadeIn 1s ease-in;
-        }
-
-        .conference-section strong {
-            font-weight: 600;
-        }
         .buttons-section {
-            text-align: center;
-            margin: 25px auto;
-            max-width: 800px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 14px auto 24px;
+            max-width: 1080px;
+            padding: 0 20px;
             animation: fadeIn 1s ease-in;
         }
 
@@ -348,8 +442,9 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 12px 24px;
-            margin: 0 10px;
+            min-width: 126px;
+            padding: 11px 20px;
+            margin: 0;
             font-family: 'Source Sans Pro', sans-serif;
             font-size: 16px;
             font-weight: 600;
@@ -397,16 +492,19 @@
         /* 添加响应式设计 */
         @media (max-width: 768px) {
             .buttons-section {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                gap: 15px;
+                display: grid;
+                grid-template-columns: minmax(0, 1fr);
+                gap: 10px;
+                padding: 0 14px;
             }
 
             .fancy-button {
-                width: 80%;
+                width: 100%;
+                min-width: 0;
                 margin: 0;
+                padding: 11px 10px;
             }
+
         }
 
         html {
@@ -440,17 +538,6 @@
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
-        }
-        .visitor-badge {
-            text-align: center;
-            margin: 0; /* 移除所有外边距 */
-            padding: 0; /* 移除所有内边距 */
-            line-height: 0; /* 消除可能的额外间距 */
-            font-size: 0; /* 消除可能的额外间距 */
-        }
-
-        .visitor-badge img {
-            vertical-align: top; /* 确保图片对齐方式不会产生额外间距 */
         }
         .tldr-section {
             text-align: center;
@@ -748,17 +835,17 @@
 </head>
 <body>
     <!-- 标题部分 -->
-    <div class="content">
+    <div class="content hero">
         <img src="doraemon.png" class="character doraemon" alt="Doraemon">
         <h1><span class="highlight">DirectL</span>: Efficient Radiance Fields Rendering for 3D Light Field Displays</h1>
-        <p class="open-source-announcement">🔥 Code is now open source!</p>
         <img src="nobita.png" class="character nobita" alt="Nobita">
         <p class="artistic-text">Make Radiance Fields Naked-eye-3D</p>
-    </div>
-    <div class="visitor-badge" style="text-align: center; margin-top: 0;">
-        <a href="https://visitorbadge.io/status?path=https%3A%2F%2Fdirect-l.github.io%2F">
-            <img src="https://api.visitorbadge.io/api/combined?path=https%3A%2F%2Fdirect-l.github.io%2F&countColor=%23d9e3f0" />
-        </a>
+        <div class="hero-meta">
+            <span class="hero-badge">SIGGRAPH Asia 2024 · ACM TOG</span>
+            <a class="hero-badge open-source" href="https://github.com/CoronaEngine/DirectLStudio" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-github"></i> Code is now open source
+            </a>
+        </div>
     </div>
     <div class="authors-section">
         <div class="main-authors">
@@ -787,9 +874,6 @@
         <div class="footnotes">
             <p><sup>*</sup>The authors contributed equally to this work.</p>
         </div>
-    </div>
-    <div class="conference-section">
-        <strong>SIGGRAPH Asia 2024 (Journal Track)</strong>
     </div>
     <div class="buttons-section">
         <button class="fancy-button" onclick="window.open('https://github.com/CoronaEngine/DirectLStudio', '_blank')">
